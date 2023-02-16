@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Estudiante</title>
+    <!-- Fonts -->
+    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+    <link rel="stylesheet" href="gallery-grid.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="icon" href="logo.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        section {
+            height: 110vh;
+            display: flex;
+            align-items: center;
+        }
+
+        section img {
+            bottom: 0;
+            left: 0;
+            max-width: 100%;
+            max-height: 100%;
+            height: auto;
+            width: auto;
+            pointer-events: none;
+            text-align: center;
+        }
+
+        .paralax {
+            position: absolute;
+            height: 100%;
+
+        }
+
+        .paralax-item {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+
+
+        }
+
+        .p-item1 {
+            background: url("imges/m_1.png") center/cover no-repeat;
+
+        }
+
+        .p-item3 {
+            background: url("imges/m_3.png")bottom/100% no-repeat;
+            background-size: cover;
+            background-position: center;
+            z-index: 2;
+
+        }
+
+        
+
+        .p-item4::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1000%;
+            height: 100%;
+            content: '';
+            background: url("imges/neblina.png")repeat-x;
+            background-size: contain;
+            background-position: center;
+            animation: marquee 20s linear infinite ;
+            z-index: 1;
+        }
+
+
+        @keyframes marquee {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+
+            100% {
+                transform: translate3d(-200vw, 0, 0);
+            }
+
+        }
+
+
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 100%;
+            margin: 0 auto;
+
+            /*margin-top: 5vh;*/
+            /* Aparece el texto de abajo*/
+
+
+        }
+
+        .content-header {
+            font-family: sans-serif;
+            color: white;
+            text-align: center !important;
+            text-transform: uppercase;
+            margin-right: -13%;
+
+
+        }
+
+        .content-header h1 {
+            font-size: min(max(40px, 6vw), 120px);
+            font-weight: 600;
+            color: white;
+            margin-bottom: -20px;
+
+
+        }
+
+        .content-header h2 {
+            font-size: min(max(30px, 5vw), 60px);
+            font-weight: 600;
+            color: rgb(0, 0, 0);
+        }
+
+        h3 {
+            font-size: min(max(30px, 5vw), 60px);
+            font-weight: 600;
+            color: rgb(0, 0, 0);
+            text-align: right;
+            margin-right: 10%;
+        }
+    </style>
+
+    <!--Boton-->
+    <style>
+        :root {
+            --bg: #3C465C;
+            --primary: #78FFCD;
+            --solid: #fff;
+            --btn-w: 10em;
+            --dot-w: calc(var(--btn-w)*.2);
+            --tr-X: calc(var(--btn-w) - var(--dot-w));
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+
+        h1 {
+            color: var(--solid);
+            font-size: 2.5rem;
+            margin-top: 6rem;
+        }
+
+        .btn {
+            position: relative;
+            margin: 10px auto;
+            width: var(--btn-w);
+            color: var(--primary);
+            border: .15em solid var(--primary);
+            border-radius: 5em;
+            text-transform: uppercase;
+            text-align: center;
+            font-size: 1.3em;
+            line-height: 2em;
+            cursor: pointer;
+            z-index: 3;
+
+        }
+
+        .dot {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: var(--dot-w);
+            height: 100%;
+            border-radius: 100%;
+            transition: all 300ms ease;
+            display: none;
+        }
+
+        .dot:after {
+            content: '';
+            position: absolute;
+            left: calc(50% - .4em);
+            top: -.4em;
+            height: .8em;
+            width: .8em;
+            background: var(--primary);
+            border-radius: 1em;
+            border: .25em solid var(--solid);
+            box-shadow: 0 0 .7em var(--solid),
+                0 0 2em var(--primary);
+        }
+
+        .btn:hover .dot,
+        .btn:focus .dot {
+            animation: atom 2s infinite linear;
+            display: block;
+        }
+
+        @keyframes atom {
+            0% {
+                transform: translateX(0) rotate(0);
+            }
+
+            30% {
+                transform: translateX(var(--tr-X)) rotate(0);
+            }
+
+            50% {
+                transform: translateX(var(--tr-X)) rotate(180deg);
+            }
+
+            80% {
+                transform: translateX(0) rotate(180deg);
+            }
+
+            100% {
+                transform: translateX(0) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="paralax">
+        <div class="paralax-item p-item1"></div>
+        <div class="paralax-item p-item2"></div>
+        <div class="paralax-item p-item3"></div>
+        <div class="paralax-item p-item4"></div>
+    </div>
+
+
+    <div class="container">
+        <div class="content-header">
+            <h1>Encuentra Tu Libro</h1>
+            <h2>Sigue Bajando</h2>
+
+        </div>
+        <section>
+            <div class="content">
+                <img src="imges/imagenlibro.png">
+
+            </div>
+        </section>
+    </div>
+
+
+    <div class="btn">
+        <a style="color:#78FFCD;" href="http://ceapanamericanasur.com/">
+            <span>BUSCAR</span>
+        </a>
+
+        <div class="dot"></div>
+    </div>
+
+    <script src="imges/paralax.js"></script>
+</body>
+
+</html>
